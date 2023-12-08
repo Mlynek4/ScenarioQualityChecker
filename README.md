@@ -9,3 +9,14 @@ Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy n
 • Kroki mogą zawierać pod-scenariusze (dowolny poziom zagłębień)
 
 • Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
+
+Skład grupy projektowej: 
+
+Łukasz Walicki 151061
+
+Jacek Młynarczyk 151747
+
+Szymon Wilczynski 151804
+
+Sebastian Bartoszewicz 151748
+
