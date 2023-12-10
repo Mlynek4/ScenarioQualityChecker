@@ -1,0 +1,32 @@
+@startuml
+interface "IElement" as IElement {
+  + accept(visitor: IVisitor)
+}
+
+class "Scenariusz" as Scenario {
+  + liczbaKrokow: int
+  + KrokiZawierajaceSlowaKluczowe: int
+  + KrokiRozpoczynajaceSieOdAktora: List<String>
+  + accept(visitor: IVisitor)
+}
+
+class "PodScenariusz" as SubScenario extends Scenario{
+   
+  
+}
+
+interface "IVisitor" as IVisitor {
+  + visitScenariusz(scenariusz: Scenariusz)
+  + visitPodScenariusz(podScenariusz: PodScenariusz)
+}
+
+class "Analityk" as Analyst {
+  + IleKrokówaCałyScenariusz()
+  + IleKrokówSłowaKluczowe()
+  + KrokiNieRozpoczynajceSięOdAktora()
+}
+
+Analyst --> IVisitor : Używa
+Scenario --> IElement : Implementuje
+SubScenario --> IElement : Implementuje
+@enduml
