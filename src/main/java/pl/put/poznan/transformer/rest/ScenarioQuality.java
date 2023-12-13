@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import pl.put.poznan.transformer.logic.KeyWordsCounter;
 import pl.put.poznan.transformer.logic.Scenario;
 import pl.put.poznan.transformer.logic.StepsCounter;
 
@@ -58,6 +59,18 @@ public class ScenarioQuality {
 
         var map = new HashMap<String, Integer>();
         map.put("liczbaKroków", stepsCounter.getNumberOfStepsInWholeScenario());
+
+        return map;
+    }
+    @RequestMapping(path = "/KeyWordsCount", method = RequestMethod.POST, produces = "application/json")
+    public HashMap<String, Integer> analyzeKeyWordsCount(@RequestBody ScenarioDTO scenario) {
+        var scen = new Scenario(scenario);
+        var keyWordsCounter = new KeyWordsCounter();
+        scen.accept(keyWordsCounter);
+        logger.debug("Key Words count: " + keyWordsCounter.getNumberOfKeyWordsInWholeScenario());
+
+        var map = new HashMap<String, Integer>();
+        map.put("liczbaSłówKluczowych", keyWordsCounter.getNumberOfKeyWordsInWholeScenario());
 
         return map;
     }

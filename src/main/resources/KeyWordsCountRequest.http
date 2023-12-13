@@ -1,0 +1,65 @@
+###
+POST http://localhost:42069/api/analyze/KeyWordsCount
+Content-Type: application/json
+
+# JSON payload
+{
+  "Tytuł": "Dodanie książki",
+  "Aktorzy": [
+    "Bibliotekarz"
+  ],
+  "Aktor systemowy": [
+    "Bibliotekarz"
+  ],
+  "Kroki": [
+    {
+      "Krok": "Bibliotekarz wybiera opcję dodania książki"
+    },
+    {
+      "Krok": "System wyświetla formularz dodawania książki"
+    },
+    {
+      "Krok": "IF: Bibliotekarz pragnie dodać egzemplarz książki",
+      "Podscenariusz": [
+        {
+          "Krok": "Bibliotekarz wybiera opcję dodania egzemplarza książki"
+        },
+        {
+          "Krok": "System prezentuje zdefiniowane egzemplarze"
+        },
+        {
+          "Krok": "FOR EACH: egzemplarz",
+          "Podscenariusz": [
+            {
+              "Krok": "Bibliotekarz wybiera opcję dodania egzemplarza"
+            },
+            {
+              "Krok": "System prosi o podanie danych egzemplarza"
+            },
+            {
+              "Krok": "Bibliotekarz podaje dane egzemplarza"
+            },
+            {
+              "Krok": "System dodaje egzemplarz do bazy danych"
+            },
+            {
+              "Krok": "System informuje o poprawnym dodaniu egzemplarza"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Krok": "Bibliotekarz zatwierdza dodanie książki"
+    },
+    {
+      "Krok": "System wyświetla komunikat o powodzeniu operacji"
+    }
+  ]
+}
+
+
+
+
+
+

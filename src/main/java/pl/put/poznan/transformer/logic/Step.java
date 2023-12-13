@@ -9,6 +9,10 @@ import pl.put.poznan.transformer.rest.StepDTO;
 public class Step implements IElement {
     private static final Logger logger = LoggerFactory.getLogger(Step.class);
     public String content;
+
+
+
+
     @Nullable
     public Subscenario subscenario;
 
