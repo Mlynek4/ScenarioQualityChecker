@@ -1,17 +1,16 @@
 package pl.put.poznan.transformer.rest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.List;
 
-public class ScenarioDTO {
-    public String title;
-    public List<String> actors;
-    public List<String> systemActors;
-
-    public List<StepDTO> steps;
-
-    public class StepDTO {
-        public String content;
-        public List<StepDTO> substeps;
-    }
+@JsonDeserialize
+public record ScenarioDTO(
+        @JsonProperty("Tytuł") String title,
+        @JsonProperty("Aktorzy") List<String> actors,
+        @JsonProperty("Aktor systemowy") List<String> systemActors,
+        @JsonProperty("Kroki") List<StepDTO> steps
+) {
 }
 
