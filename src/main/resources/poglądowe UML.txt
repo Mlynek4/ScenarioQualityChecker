@@ -28,7 +28,9 @@ interface "IVisitor" as IVisitor {
 class StepCounter implements IVisitor {
     + getStepsCount()
 }
+class KeyWordsCounter implements IVisitor {
+    + getKeyWordsCount()
+}
 
 IVisitor <-- IElement : "Używa"
-
 @enduml
