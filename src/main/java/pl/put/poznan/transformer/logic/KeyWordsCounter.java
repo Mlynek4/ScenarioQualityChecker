@@ -15,7 +15,7 @@ public class KeyWordsCounter implements IVisitor{
 
     @Override
     public void visitStep(Step step) {
-        if(step.content.split(" ")[0].matches("IF:?")||step.content.split(" ")[0].matches("ELSE:?") || (step.content.split(" ")[0].matches("FOR") && step.content.split(" ")[1].matches("EACH:?"))){
+        if(step.content.split(" ")[0].matches("IF:?")||step.content.split(" ")[0].matches("ELSE:?") || (step.content.split(" ")[0].matches("FOR") && step.content.split("\\s+")[1].matches("EACH:?"))){
             numberOfKeyWordsInWholeScenario++;
         }
     }
