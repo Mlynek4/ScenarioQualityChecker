@@ -26,11 +26,15 @@ interface "IVisitor" as IVisitor {
 }
 
 class StepCounter implements IVisitor {
-    + getStepCountInMainScenario()
-    + getStepCountInWholeScenario()
+    + int getStepCountInMainScenario()
+    + int getStepCountInWholeScenario()
 }
 class KeyWordsCounter implements IVisitor {
-    + getKeyWordsCount()
+    + int getKeyWordsCount()
+}
+
+class StepsNotStartingWithActor implements IVisitor {
+    + List<String> getStepsNotStartingWithActor()
 }
 
 IVisitor <-- IElement : "Używa"

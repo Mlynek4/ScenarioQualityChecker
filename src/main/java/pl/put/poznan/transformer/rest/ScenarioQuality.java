@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.put.poznan.transformer.logic.KeyWordsCounter;
 import pl.put.poznan.transformer.logic.Scenario;
 import pl.put.poznan.transformer.logic.StepsCounter;
+import pl.put.poznan.transformer.logic.StepsNotStartingWithActor;
 
 import java.util.HashMap;
+import java.util.List;
 
 
 @RestController
@@ -63,6 +65,20 @@ public class ScenarioQuality {
 
         return map;
     }
+
+    @RequestMapping(path = "/stepsNotStartingWithActor", method = RequestMethod.POST, produces = "application/json")
+    public HashMap<String, List<String>> analyzeStepsNotStartingWithActor(@RequestBody ScenarioDTO scenario) {
+        var scen = new Scenario(scenario);
+        var vs = new StepsNotStartingWithActor();
+        scen.accept(vs);
+        logger.debug("Steps not starting with actor: " + vs.getStepsNotStartingWithActor());
+
+        var map = new HashMap<String, List<String>>();
+        map.put("krokiNieZaczynająceSięOdAktorów", vs.getStepsNotStartingWithActor());
+
+        return map;
+    }
+
     @RequestMapping(path = "/KeyWordsCount", method = RequestMethod.POST, produces = "application/json")
     public HashMap<String, Integer> analyzeKeyWordsCount(@RequestBody ScenarioDTO scenario) {
         var scen = new Scenario(scenario);
