@@ -55,10 +55,11 @@ public class ScenarioQuality {
         var scen = new Scenario(scenario);
         var stepsCounter = new StepsCounter();
         scen.accept(stepsCounter);
-        logger.debug("Steps count: " + stepsCounter.getNumberOfStepsInWholeScenario());
+        logger.debug("Steps count: " + stepsCounter.getStepCountInWholeScenario());
 
         var map = new HashMap<String, Integer>();
-        map.put("liczbaKroków", stepsCounter.getNumberOfStepsInWholeScenario());
+        map.put("liczbaKrokówWCałymScenariuszu", stepsCounter.getStepCountInWholeScenario());
+        map.put("liczbaKrokówWGłownymScenariuszu", stepsCounter.getStepCountInMainScenario());
 
         return map;
     }

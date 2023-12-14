@@ -26,7 +26,8 @@ interface "IVisitor" as IVisitor {
 }
 
 class StepCounter implements IVisitor {
-    + getStepsCount()
+    + getStepCountInMainScenario()
+    + getStepCountInWholeScenario()
 }
 class KeyWordsCounter implements IVisitor {
     + getKeyWordsCount()
