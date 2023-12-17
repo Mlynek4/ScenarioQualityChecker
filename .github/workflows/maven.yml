@@ -8,11 +8,7 @@
 
 name: Java CI with Maven
 
-on:
-  push:
-    branches: [ "javadoc-setup" ]
-  pull_request:
-    branches: [ "javadoc-setup" ]
+on: [push]
 
 jobs:
   build:
