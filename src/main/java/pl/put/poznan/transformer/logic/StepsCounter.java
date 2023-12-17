@@ -1,5 +1,8 @@
 package pl.put.poznan.transformer.logic;
 
+/**
+ * Used to count a total amount of steps appearing in a Scenario.
+ */
 public class StepsCounter implements IVisitor {
     private int numberOfStepsInWholeScenario = 0;
     private int numberOfStepsInScenario = 0;
